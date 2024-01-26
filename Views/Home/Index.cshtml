@@ -1,0 +1,20 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+    var key_value = ViewBag.Key_Value;
+    var games = ViewBag.Games;
+}
+
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+
+    <h2>Key_Value</h2>
+    <p>@key_value["Key1"]</p>
+    <p>@key_value["Key2"]</p>
+
+    <h2>Games</h2>
+    @foreach (var game in games)
+    {
+        <p>@game</p>
+    }
+</div>
