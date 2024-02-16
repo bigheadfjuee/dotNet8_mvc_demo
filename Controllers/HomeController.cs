@@ -1,4 +1,5 @@
 using System.Diagnostics;
+using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
 using mvc8.Models;
 
@@ -37,5 +38,23 @@ public class HomeController : Controller
         return View(
             new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier }
         );
+    }
+
+    [HttpPost]
+    public IActionResult AjaxPostForm([FromForm] HomeModel model)
+    {
+        Console.WriteLine(model.ToString());
+
+        Console.WriteLine(model.JsonArr);
+        // FormData 要傳 array 只能先轉成 JSON 字串，接收端再處理轉回 array
+        return Ok(Json("ok"));
+    }
+
+    [HttpPost]
+    public ActionResult AjaxPostJson([FromBody] HomeModelJ model)
+    {
+       // 直接使用 FromBody 接收 JSON 格式的資料
+        Console.WriteLine(model.ToString());
+        return Ok(Json("ok"));
     }
 }

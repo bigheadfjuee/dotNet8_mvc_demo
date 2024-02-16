@@ -1,4 +1,5 @@
-﻿@{
+﻿@model mvc8.Models.HomeModel;
+@{
     ViewData["Title"] = "Home Page";
     var key_value = ViewBag.Key_Value;
     var games = ViewBag.Games;
@@ -17,4 +18,8 @@
     {
         <p>@game</p>
     }
+
+    <button onclick="ajax_post_form()">AJAX Post Form</button>
+    <button onclick="ajax_post_json()">AJAX Post JSON</button>
+
 </div>
